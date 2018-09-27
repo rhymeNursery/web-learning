@@ -1,0 +1,19 @@
+{
+  "name": "web-learning",
+  "version": "1.0.0",
+  "description": "My Smart Training Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhymeNursery/web-learning.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rhymeNursery/web-learning/issues"
+  },
+  "homepage": "https://github.com/rhymeNursery/web-learning#readme"
+}
