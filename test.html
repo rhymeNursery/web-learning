@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class List extends React.Component {
+            inputValue = '';
+
+            constructor(props) {
+                super(props);
+                this.state = {
+                    list: [1,2,3]
+                }
+            }
+            /** 当输入框输入时触发 */
+            onChange(e){
+                e.persist();
+                this.inputValue = e.target.value;
+            }
+
+            /** 当点击提交按钮时触发 */
+            onSubmit(e){
+                this.state.list.push(this.inputValue);
+                this.setState({
+                    list: this.state.list
+                })
+            }
+            render() {
+                return (
+                <div>
+                    <ul>
+                        {this.state.list.map(item => {
+                            return <li key={item}>{item}</li>
+                        })}
+                    </ul>
+                    <input placeholder="请输入" onChange={(e)=>{this.onChange(e)}}/>
+                    <button onClick={(e)=>{this.onSubmit(e)}}>提交</button>
+                </div>
+                )
+            }
+        }
+      ReactDOM.render(
+        <List></List>,
+        document.getElementById('root')
+      );
+    </script>
+</body>
+
+</html>
